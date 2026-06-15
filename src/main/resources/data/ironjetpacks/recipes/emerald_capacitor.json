@@ -1,0 +1,21 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "emerald",
+  "result_type": "capacitor",
+  "group": "ironjetpacks:capacitors",
+  "pattern": [
+    "MLM",
+    "MLM",
+    "MLM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:gems/emerald"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "emerald"
+    }
+  }
+}

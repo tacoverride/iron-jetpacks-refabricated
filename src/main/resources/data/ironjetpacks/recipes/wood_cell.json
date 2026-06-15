@@ -1,0 +1,22 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "wood",
+  "result_type": "cell",
+  "group": "ironjetpacks:cells",
+  "pattern": [
+    " R ",
+    "MCM",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "tag": "minecraft:planks"
+    },
+    "C": {
+      "item": "ironjetpacks:basic_coil"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "stone",
+  "result_type": "thruster",
+  "group": "ironjetpacks:thrusters",
+  "pattern": [
+    "MCM",
+    "CLC",
+    "MFM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:stone"
+    },
+    "C": {
+      "item": "ironjetpacks:basic_coil"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "stone"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  }
+}

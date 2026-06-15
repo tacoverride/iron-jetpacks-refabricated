@@ -1,0 +1,22 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "diamond",
+  "result_type": "cell",
+  "group": "ironjetpacks:cells",
+  "pattern": [
+    " R ",
+    "MCM",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "tag": "forge:gems/diamond"
+    },
+    "C": {
+      "item": "ironjetpacks:elite_coil"
+    }
+  }
+}

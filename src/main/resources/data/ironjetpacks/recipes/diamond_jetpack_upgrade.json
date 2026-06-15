@@ -1,0 +1,31 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "diamond",
+  "result_type": "jetpack",
+  "group": "ironjetpacks:jetpack_upgrades",
+  "pattern": [
+    "MPM",
+    "MJM",
+    "T T"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:gems/diamond"
+    },
+    "P": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "capacitor",
+      "tier": "diamond"
+    },
+    "J": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "jetpack",
+      "tier": "gold"
+    },
+    "T": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "thruster",
+      "tier": "diamond"
+    }
+  }
+}

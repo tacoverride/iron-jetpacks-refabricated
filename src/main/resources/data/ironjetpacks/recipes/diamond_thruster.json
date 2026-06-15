@@ -1,0 +1,27 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "diamond",
+  "result_type": "thruster",
+  "group": "ironjetpacks:thrusters",
+  "pattern": [
+    "MCM",
+    "CLC",
+    "MFM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:gems/diamond"
+    },
+    "C": {
+      "item": "ironjetpacks:elite_coil"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "diamond"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  }
+}

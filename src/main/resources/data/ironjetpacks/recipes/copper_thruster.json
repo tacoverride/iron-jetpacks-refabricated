@@ -1,0 +1,27 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "copper",
+  "result_type": "thruster",
+  "group": "ironjetpacks:thrusters",
+  "pattern": [
+    "MCM",
+    "CLC",
+    "MFM"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:copper_ingot"
+    },
+    "C": {
+      "item": "ironjetpacks:basic_coil"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "copper"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  }
+}

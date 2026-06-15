@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "ironjetpacks",
+	"version": "${version}",
+	"name": "Iron Jetpacks ReFabricated",
+	"description": "A Fabric port of Iron Jetpacks for Minecraft 1.20.1.",
+	"authors": [
+		"Tac"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/"
+	},
+	"license": "MIT",
+	"icon": "assets/ironjetpacks/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ironjetpacks.IronJetpacksReFabricated"
+		],
+		"client": [
+			"ironjetpacks.client.IronJetpacksReFabricatedClient"
+		],
+		"modmenu": [
+			"ironjetpacks.client.config.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"ironjetpacks.mixins.json",
+		{
+			"config": "ironjetpacks.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"team_reborn_energy": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

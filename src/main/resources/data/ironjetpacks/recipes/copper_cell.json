@@ -1,0 +1,22 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "copper",
+  "result_type": "cell",
+  "group": "ironjetpacks:cells",
+  "pattern": [
+    " R ",
+    "MCM",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "item": "minecraft:copper_ingot"
+    },
+    "C": {
+      "item": "ironjetpacks:basic_coil"
+    }
+  }
+}

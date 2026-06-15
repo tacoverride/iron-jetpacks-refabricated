@@ -1,0 +1,21 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "gold",
+  "result_type": "capacitor",
+  "group": "ironjetpacks:capacitors",
+  "pattern": [
+    "MLM",
+    "MLM",
+    "MLM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:ingots/gold"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "gold"
+    }
+  }
+}

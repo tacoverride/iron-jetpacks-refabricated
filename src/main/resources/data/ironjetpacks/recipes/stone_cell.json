@@ -1,0 +1,22 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "stone",
+  "result_type": "cell",
+  "group": "ironjetpacks:cells",
+  "pattern": [
+    " R ",
+    "MCM",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "tag": "forge:stone"
+    },
+    "C": {
+      "item": "ironjetpacks:basic_coil"
+    }
+  }
+}

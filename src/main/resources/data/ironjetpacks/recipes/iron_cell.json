@@ -1,0 +1,22 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "iron",
+  "result_type": "cell",
+  "group": "ironjetpacks:cells",
+  "pattern": [
+    " R ",
+    "MCM",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "tag": "forge:ingots/iron"
+    },
+    "C": {
+      "item": "ironjetpacks:advanced_coil"
+    }
+  }
+}

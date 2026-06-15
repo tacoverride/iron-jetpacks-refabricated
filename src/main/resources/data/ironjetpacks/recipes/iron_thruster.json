@@ -1,0 +1,27 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "iron",
+  "result_type": "thruster",
+  "group": "ironjetpacks:thrusters",
+  "pattern": [
+    "MCM",
+    "CLC",
+    "MFM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:ingots/iron"
+    },
+    "C": {
+      "item": "ironjetpacks:advanced_coil"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "iron"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  }
+}

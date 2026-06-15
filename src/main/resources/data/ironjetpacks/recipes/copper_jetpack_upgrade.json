@@ -1,0 +1,31 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "copper",
+  "result_type": "jetpack",
+  "group": "ironjetpacks:jetpack_upgrades",
+  "pattern": [
+    "MPM",
+    "MJM",
+    "T T"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:copper_ingot"
+    },
+    "P": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "capacitor",
+      "tier": "copper"
+    },
+    "J": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "jetpack",
+      "tier": "stone"
+    },
+    "T": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "thruster",
+      "tier": "copper"
+    }
+  }
+}

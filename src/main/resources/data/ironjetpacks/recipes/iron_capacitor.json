@@ -1,0 +1,21 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "iron",
+  "result_type": "capacitor",
+  "group": "ironjetpacks:capacitors",
+  "pattern": [
+    "MLM",
+    "MLM",
+    "MLM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:ingots/iron"
+    },
+    "L": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "cell",
+      "tier": "iron"
+    }
+  }
+}

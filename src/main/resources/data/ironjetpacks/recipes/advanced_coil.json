@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " DR",
+    "DSD",
+    "RD "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ironjetpacks:advanced_coil"
+  }
+}

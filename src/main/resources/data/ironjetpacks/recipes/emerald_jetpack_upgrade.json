@@ -1,0 +1,31 @@
+{
+  "type": "ironjetpacks:tiered_shaped",
+  "tier": "emerald",
+  "result_type": "jetpack",
+  "group": "ironjetpacks:jetpack_upgrades",
+  "pattern": [
+    "MPM",
+    "MJM",
+    "T T"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:gems/emerald"
+    },
+    "P": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "capacitor",
+      "tier": "emerald"
+    },
+    "J": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "jetpack",
+      "tier": "diamond"
+    },
+    "T": {
+      "type": "ironjetpacks:tiered_item",
+      "item": "thruster",
+      "tier": "emerald"
+    }
+  }
+}
