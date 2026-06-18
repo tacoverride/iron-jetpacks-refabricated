@@ -8,17 +8,14 @@ import net.minecraft.item.ItemStack;
 
 public class ModItemColors {
     public static void register() {
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getJetpackColor(stack, tintIndex), ModItems.JETPACK);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getJetpackColor(stack, tintIndex), ModItems.allJetpacks());
 
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getComponentColor(stack), ModItems.CELL);
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getComponentColor(stack), ModItems.THRUSTER);
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getComponentColor(stack), ModItems.CAPACITOR);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getComponentColor(stack), ModItems.allCells());
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getComponentColor(stack), ModItems.allThrusters());
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> getComponentColor(stack), ModItems.allCapacitors());
     }
 
     private static int getJetpackColor(ItemStack stack, int tintIndex) {
-        // Official jetpack model:
-        // layer0 = strap, no tint
-        // layer1 = jetpack body, tier tint
         if (tintIndex != 1) {
             return -1;
         }

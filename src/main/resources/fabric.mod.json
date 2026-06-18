@@ -3,9 +3,9 @@
 	"id": "ironjetpacks",
 	"version": "${version}",
 	"name": "Iron Jetpacks ReFabricated",
-	"description": "A Fabric port of Iron Jetpacks for Minecraft.",
+	"description": "A Fabric port of Iron Jetpacks for Minecraft 1.20.1.",
 	"authors": [
-		"tacoverride"
+		"Tac"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/"
@@ -39,6 +39,7 @@
 		"team_reborn_energy": "*"
 	},
 	"suggests": {
-		"modmenu": "*"
+		"modmenu": "*",
+		"trinkets": "*"
 	}
 }

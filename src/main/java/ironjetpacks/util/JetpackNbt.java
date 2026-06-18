@@ -10,8 +10,6 @@ public class JetpackNbt {
     public static final String HOVER = "Hover";
     public static final String THROTTLE = "Throttle";
 
-    // TeamReborn Energy API commonly stores item energy under lowercase "energy".
-    // We still read old uppercase "Energy" so existing test jetpacks do not break.
     public static final String ENERGY = "energy";
     public static final String LEGACY_ENERGY = "Energy";
 
@@ -55,7 +53,6 @@ public class JetpackNbt {
         } else if (nbt.contains(LEGACY_ENERGY)) {
             energy = nbt.getInt(LEGACY_ENERGY);
 
-            // Migrate old uppercase energy to lowercase.
             nbt.putInt(ENERGY, energy);
             nbt.remove(LEGACY_ENERGY);
         }

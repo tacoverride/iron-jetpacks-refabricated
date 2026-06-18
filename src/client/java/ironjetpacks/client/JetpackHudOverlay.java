@@ -1,5 +1,6 @@
 package ironjetpacks.client;
 
+import ironjetpacks.compat.TrinketsCompat;
 import ironjetpacks.config.ModConfig;
 import ironjetpacks.item.JetpackItem;
 import ironjetpacks.util.JetpackNbt;
@@ -8,7 +9,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ChatScreen;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -32,7 +32,7 @@ public class JetpackHudOverlay {
                 return;
             }
 
-            ItemStack stack = client.player.getEquippedStack(EquipmentSlot.CHEST);
+            ItemStack stack = TrinketsCompat.findEquippedJetpack(client.player);
 
             if (!(stack.getItem() instanceof JetpackItem)) {
                 return;
@@ -63,11 +63,7 @@ public class JetpackHudOverlay {
             return true;
         }
 
-        if (client.getOverlay() != null) {
-            return true;
-        }
-
-        return false;
+        return client.getOverlay() != null;
     }
 
     private static void render(DrawContext drawContext, MinecraftClient client, ItemStack stack) {

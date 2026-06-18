@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "stone",
-  "result_type": "thruster",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:thrusters",
   "pattern": [
     "MCM",
@@ -16,12 +14,13 @@
       "item": "ironjetpacks:basic_coil"
     },
     "L": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "cell",
-      "tier": "stone"
+      "item": "ironjetpacks:stone_cell"
     },
     "F": {
       "item": "minecraft:furnace"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:stone_thruster"
   }
 }

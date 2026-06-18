@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "stone",
-  "result_type": "jetpack",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:jetpack_upgrades",
   "pattern": [
     "MPM",
@@ -13,19 +11,16 @@
       "tag": "forge:stone"
     },
     "P": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "capacitor",
-      "tier": "stone"
+      "item": "ironjetpacks:stone_capacitor"
     },
     "J": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "jetpack",
-      "tier": "wood"
+      "item": "ironjetpacks:wood_jetpack"
     },
     "T": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "thruster",
-      "tier": "stone"
+      "item": "ironjetpacks:stone_thruster"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:stone_jetpack"
   }
 }

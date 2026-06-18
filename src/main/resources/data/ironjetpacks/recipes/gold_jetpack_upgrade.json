@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "gold",
-  "result_type": "jetpack",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:jetpack_upgrades",
   "pattern": [
     "MPM",
@@ -13,19 +11,16 @@
       "tag": "forge:ingots/gold"
     },
     "P": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "capacitor",
-      "tier": "gold"
+      "item": "ironjetpacks:gold_capacitor"
     },
     "J": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "jetpack",
-      "tier": "iron"
+      "item": "ironjetpacks:iron_jetpack"
     },
     "T": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "thruster",
-      "tier": "gold"
+      "item": "ironjetpacks:gold_thruster"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:gold_jetpack"
   }
 }

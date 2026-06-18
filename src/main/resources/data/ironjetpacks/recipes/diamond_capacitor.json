@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "diamond",
-  "result_type": "capacitor",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:capacitors",
   "pattern": [
     "MLM",
@@ -13,9 +11,10 @@
       "tag": "forge:gems/diamond"
     },
     "L": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "cell",
-      "tier": "diamond"
+      "item": "ironjetpacks:diamond_cell"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:diamond_capacitor"
   }
 }

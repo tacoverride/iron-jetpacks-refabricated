@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "wood",
-  "result_type": "capacitor",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:capacitors",
   "pattern": [
     "MLM",
@@ -13,9 +11,10 @@
       "tag": "minecraft:planks"
     },
     "L": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "cell",
-      "tier": "wood"
+      "item": "ironjetpacks:wood_cell"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:wood_capacitor"
   }
 }

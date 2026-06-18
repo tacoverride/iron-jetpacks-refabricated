@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "copper",
-  "result_type": "capacitor",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:capacitors",
   "pattern": [
     "MLM",
@@ -13,9 +11,10 @@
       "item": "minecraft:copper_ingot"
     },
     "L": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "cell",
-      "tier": "copper"
+      "item": "ironjetpacks:copper_cell"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:copper_capacitor"
   }
 }

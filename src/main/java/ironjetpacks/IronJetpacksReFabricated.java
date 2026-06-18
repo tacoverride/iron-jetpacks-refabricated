@@ -3,7 +3,6 @@ package ironjetpacks;
 import ironjetpacks.config.ModConfig;
 import ironjetpacks.flight.JetpackFlightHandler;
 import ironjetpacks.network.ModNetworking;
-import ironjetpacks.recipe.ModRecipes;
 import ironjetpacks.registry.ModItems;
 import ironjetpacks.registry.ModSounds;
 import net.fabricmc.api.ModInitializer;
@@ -19,7 +18,6 @@ public class IronJetpacksReFabricated implements ModInitializer {
         ModConfig.load();
         ModItems.register();
         ModSounds.register();
-        ModRecipes.register();
         ModNetworking.registerServer();
         JetpackFlightHandler.register();
 

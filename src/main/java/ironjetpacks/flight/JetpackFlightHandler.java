@@ -1,11 +1,12 @@
 package ironjetpacks.flight;
 
+import ironjetpacks.compat.TrinketsCompat;
+import ironjetpacks.config.ModConfig;
 import ironjetpacks.item.JetpackItem;
 import ironjetpacks.item.TieredComponentItem;
 import ironjetpacks.tier.JetpackTier;
 import ironjetpacks.util.JetpackNbt;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
@@ -29,8 +30,18 @@ public class JetpackFlightHandler {
         INPUTS.put(player.getUuid(), new InputState(ascending, descending, forward, sideways));
     }
 
+    public static ItemStack findEquippedJetpack(ServerPlayerEntity player) {
+        ItemStack stack = TrinketsCompat.findEquippedJetpack(player);
+
+        if (stack.getItem() instanceof JetpackItem) {
+            return stack;
+        }
+
+        return ItemStack.EMPTY;
+    }
+
     private static void tickPlayer(ServerPlayerEntity player) {
-        ItemStack stack = player.getEquippedStack(EquipmentSlot.CHEST);
+        ItemStack stack = findEquippedJetpack(player);
 
         if (!(stack.getItem() instanceof JetpackItem)) {
             return;
@@ -40,7 +51,7 @@ public class JetpackFlightHandler {
             return;
         }
 
-        if (!JetpackNbt.hasEnergy(stack)) {
+        if (!player.isCreative() && !JetpackNbt.hasEnergy(stack)) {
             return;
         }
 
@@ -49,6 +60,11 @@ public class JetpackFlightHandler {
 
         double throttle = Math.max(0.20D, JetpackNbt.getThrottle(stack) / 100.0D);
         boolean sprinting = player.isSprinting();
+
+        double verticalMultiplier = ModConfig.INSTANCE.verticalSpeedMultiplier();
+        double horizontalMultiplier = ModConfig.INSTANCE.horizontalSpeedMultiplier();
+        double hoverMultiplier = ModConfig.INSTANCE.hoverSpeedMultiplier();
+        double momentumRetention = ModConfig.INSTANCE.momentumRetention();
 
         Vec3d velocity = player.getVelocity();
 
@@ -60,13 +76,13 @@ public class JetpackFlightHandler {
 
         if (input.ascending()) {
             double currentVerticalSpeed = y;
-            double verticalAcceleration = tier.accelVert();
+            double verticalAcceleration = tier.accelVert() * verticalMultiplier;
 
             if (currentVerticalSpeed < 0.30D) {
                 verticalAcceleration *= 2.5D;
             }
 
-            double maxVerticalSpeed = tier.speedVert();
+            double maxVerticalSpeed = tier.speedVert() * verticalMultiplier;
 
             if (player.isTouchingWater()) {
                 maxVerticalSpeed *= 0.40D;
@@ -79,10 +95,13 @@ public class JetpackFlightHandler {
             }
 
             if (JetpackNbt.isHoverEnabled(stack)) {
+                double hoverAscendSpeed = tier.speedHoverAscend() * hoverMultiplier;
+                double hoverSlowSpeed = tier.speedHoverSlow() * hoverMultiplier;
+
                 if (input.descending()) {
-                    y = Math.min(currentVerticalSpeed + verticalAcceleration, -tier.speedHoverSlow());
+                    y = Math.min(currentVerticalSpeed + verticalAcceleration, -hoverSlowSpeed);
                 } else {
-                    y = Math.min(currentVerticalSpeed + verticalAcceleration, tier.speedHoverAscend()) * throttle * sprintVerticalModifier;
+                    y = Math.min(currentVerticalSpeed + verticalAcceleration, hoverAscendSpeed) * throttle * sprintVerticalModifier;
                 }
             } else {
                 y = Math.min(currentVerticalSpeed + verticalAcceleration, maxVerticalSpeed) * throttle * sprintVerticalModifier;
@@ -92,11 +111,11 @@ public class JetpackFlightHandler {
             usedJetpack = true;
         } else if (JetpackNbt.isHoverEnabled(stack)) {
             double targetFallSpeed = input.descending()
-                    ? -tier.speedHoverDescend()
-                    : -tier.speedHoverSlow();
+                    ? -tier.speedHoverDescend() * hoverMultiplier
+                    : -tier.speedHoverSlow() * hoverMultiplier;
 
             double currentVerticalSpeed = y;
-            double verticalAcceleration = tier.accelVert();
+            double verticalAcceleration = tier.accelVert() * verticalMultiplier;
 
             if (currentVerticalSpeed < 0.30D) {
                 verticalAcceleration *= 2.5D;
@@ -107,19 +126,24 @@ public class JetpackFlightHandler {
             usedJetpack = true;
         }
 
-        Vec3d horizontalBoost = getHorizontalBoost(player, input, tier, throttle, sprinting);
+        Vec3d horizontalBoost = getHorizontalBoost(player, input, tier, throttle, sprinting, horizontalMultiplier);
 
         if (horizontalBoost.lengthSquared() > 0.0D) {
             x += horizontalBoost.x;
             z += horizontalBoost.z;
             usedJetpack = true;
+        } else if (momentumRetention < 1.0D && usedJetpack) {
+            x *= momentumRetention;
+            z *= momentumRetention;
         }
 
         if (usedJetpack) {
-            int energyCost = calculateEnergyCost(tier, throttle, sprinting);
+            if (!player.isCreative()) {
+                int energyCost = calculateEnergyCost(tier, throttle, sprinting);
 
-            if (!JetpackNbt.consumeEnergy(stack, energyCost)) {
-                return;
+                if (!JetpackNbt.consumeEnergy(stack, energyCost)) {
+                    return;
+                }
             }
 
             player.setVelocity(x, y, z);
@@ -144,7 +168,14 @@ public class JetpackFlightHandler {
         return Math.max(1, (int) Math.ceil(cost));
     }
 
-    private static Vec3d getHorizontalBoost(ServerPlayerEntity player, InputState input, JetpackTier tier, double throttle, boolean sprinting) {
+    private static Vec3d getHorizontalBoost(
+            ServerPlayerEntity player,
+            InputState input,
+            JetpackTier tier,
+            double throttle,
+            boolean sprinting,
+            double horizontalMultiplier
+    ) {
         double forward = input.forward();
         double sideways = input.sideways();
 
@@ -152,7 +183,7 @@ public class JetpackFlightHandler {
             return Vec3d.ZERO;
         }
 
-        double speed = tier.speedSide() * throttle;
+        double speed = tier.speedSide() * horizontalMultiplier * throttle;
 
         if (sprinting) {
             speed *= tier.sprintSpeed();

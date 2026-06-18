@@ -1,26 +1,21 @@
 {
   "itemGroup.ironjetpacks": "Iron Jetpacks",
-
   "item.ironjetpacks.strap": "Leather Strap",
   "item.ironjetpacks.basic_coil": "Basic Coil",
   "item.ironjetpacks.advanced_coil": "Advanced Coil",
   "item.ironjetpacks.elite_coil": "Elite Coil",
   "item.ironjetpacks.ultimate_coil": "Ultimate Coil",
-
   "item.ironjetpacks.cell": "%s Energy Cell",
   "item.ironjetpacks.thruster": "%s Thruster",
   "item.ironjetpacks.capacitor": "%s Capacitor",
   "item.ironjetpacks.jetpack": "%s Jetpack",
-
   "keybind.ironjetpacks.engine": "Toggle Engine",
   "keybind.ironjetpacks.hover": "Toggle Hover Mode",
   "keybind.ironjetpacks.ascend": "Ascend",
   "keybind.ironjetpacks.descend": "Descend",
   "keybind.ironjetpacks.increment_throttle": "Increase Throttle",
   "keybind.ironjetpacks.decrement_throttle": "Decrease Throttle",
-
   "subtitle.ironjetpacks.jetpack": "Jetpack",
-
   "tooltip.ironjetpacks.on": "ON",
   "tooltip.ironjetpacks.off": "OFF",
   "tooltip.ironjetpacks.infinite": "Infinite",
@@ -42,6 +37,34 @@
   "tooltip.ironjetpacks.toggle_hover": "Toggled Hover %s",
   "tooltip.ironjetpacks.change_throttle": "Throttle set to %s",
   "tooltip.ironjetpacks.state_tooltip_layout": "%s | %s | %s",
-  "tooltip.ironjetpacks.jetpack_id": "Jetpack ID: %s"
-  
+  "tooltip.ironjetpacks.jetpack_id": "Jetpack ID: %s",
+  "item.ironjetpacks.wood_cell": "Wood Energy Cell",
+  "item.ironjetpacks.wood_thruster": "Wood Thruster",
+  "item.ironjetpacks.wood_capacitor": "Wood Capacitor",
+  "item.ironjetpacks.wood_jetpack": "Wood Jetpack",
+  "item.ironjetpacks.stone_cell": "Stone Energy Cell",
+  "item.ironjetpacks.stone_thruster": "Stone Thruster",
+  "item.ironjetpacks.stone_capacitor": "Stone Capacitor",
+  "item.ironjetpacks.stone_jetpack": "Stone Jetpack",
+  "item.ironjetpacks.copper_cell": "Copper Energy Cell",
+  "item.ironjetpacks.copper_thruster": "Copper Thruster",
+  "item.ironjetpacks.copper_capacitor": "Copper Capacitor",
+  "item.ironjetpacks.copper_jetpack": "Copper Jetpack",
+  "item.ironjetpacks.iron_cell": "Iron Energy Cell",
+  "item.ironjetpacks.iron_thruster": "Iron Thruster",
+  "item.ironjetpacks.iron_capacitor": "Iron Capacitor",
+  "item.ironjetpacks.iron_jetpack": "Iron Jetpack",
+  "item.ironjetpacks.gold_cell": "Gold Energy Cell",
+  "item.ironjetpacks.gold_thruster": "Gold Thruster",
+  "item.ironjetpacks.gold_capacitor": "Gold Capacitor",
+  "item.ironjetpacks.gold_jetpack": "Gold Jetpack",
+  "item.ironjetpacks.diamond_cell": "Diamond Energy Cell",
+  "item.ironjetpacks.diamond_thruster": "Diamond Thruster",
+  "item.ironjetpacks.diamond_capacitor": "Diamond Capacitor",
+  "item.ironjetpacks.diamond_jetpack": "Diamond Jetpack",
+  "item.ironjetpacks.emerald_cell": "Emerald Energy Cell",
+  "item.ironjetpacks.emerald_thruster": "Emerald Thruster",
+  "item.ironjetpacks.emerald_capacitor": "Emerald Capacitor",
+  "item.ironjetpacks.emerald_jetpack": "Emerald Jetpack",
+  "item.ironjetpacks.creative_jetpack": "Creative Jetpack"
 }

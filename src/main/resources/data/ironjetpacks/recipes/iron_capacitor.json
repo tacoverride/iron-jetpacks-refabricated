@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "iron",
-  "result_type": "capacitor",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:capacitors",
   "pattern": [
     "MLM",
@@ -13,9 +11,10 @@
       "tag": "forge:ingots/iron"
     },
     "L": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "cell",
-      "tier": "iron"
+      "item": "ironjetpacks:iron_cell"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:iron_capacitor"
   }
 }

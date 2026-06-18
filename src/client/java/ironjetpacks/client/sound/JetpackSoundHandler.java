@@ -1,11 +1,11 @@
 package ironjetpacks.client.sound;
 
+import ironjetpacks.compat.TrinketsCompat;
 import ironjetpacks.config.ModConfig;
 import ironjetpacks.item.JetpackItem;
 import ironjetpacks.util.JetpackNbt;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 
 public class JetpackSoundHandler {
@@ -31,7 +31,7 @@ public class JetpackSoundHandler {
             return false;
         }
 
-        ItemStack stack = client.player.getEquippedStack(EquipmentSlot.CHEST);
+        ItemStack stack = TrinketsCompat.findEquippedJetpack(client.player);
 
         if (!(stack.getItem() instanceof JetpackItem)) {
             return false;

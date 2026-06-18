@@ -21,26 +21,31 @@ import java.util.List;
 public class JetpackItem extends ArmorItem implements SimpleEnergyItem {
     public static final String SHIFT_HINT_MARKER = "ironjetpacks_shift_hint_marker";
 
-    public JetpackItem(Settings settings) {
+    private final JetpackTier tier;
+
+    public JetpackItem(JetpackTier tier, Settings settings) {
         super(JetpackArmorMaterial.INSTANCE, Type.CHESTPLATE, settings);
+        this.tier = tier;
     }
 
-    public static ItemStack withTierAndFullEnergy(JetpackItem item, JetpackTier tier) {
-        ItemStack stack = TieredComponentItem.withTier(item, tier);
+    public JetpackTier getTier() {
+        return this.tier;
+    }
+
+    public static ItemStack withFullEnergy(JetpackItem item) {
+        ItemStack stack = new ItemStack(item);
         JetpackNbt.setFullEnergy(stack);
         return stack;
     }
 
     @Override
     public Text getName(ItemStack stack) {
-        JetpackTier tier = TieredComponentItem.getTier(stack);
-        return Text.translatable("item.ironjetpacks.jetpack", tier.displayName());
+        return Text.translatable("item.ironjetpacks.jetpack", this.tier.displayName());
     }
 
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        JetpackTier tier = TieredComponentItem.getTier(stack);
-        return !tier.isCreative();
+        return !this.tier.isCreative();
     }
 
     @Override
@@ -61,44 +66,37 @@ public class JetpackItem extends ArmorItem implements SimpleEnergyItem {
 
     @Override
     public long getEnergyCapacity(ItemStack stack) {
-        JetpackTier tier = TieredComponentItem.getTier(stack);
-
-        if (tier.isCreative()) {
+        if (this.tier.isCreative()) {
             return 0L;
         }
 
-        return tier.capacity();
+        return this.tier.capacity();
     }
 
     @Override
     public long getEnergyMaxInput(ItemStack stack) {
-        JetpackTier tier = TieredComponentItem.getTier(stack);
-
-        if (tier.isCreative()) {
+        if (this.tier.isCreative()) {
             return 0L;
         }
 
-        return Math.max(1L, tier.capacity() / 100L);
+        return Math.max(1L, this.tier.capacity() / 100L);
     }
 
     @Override
     public long getEnergyMaxOutput(ItemStack stack) {
-        JetpackTier tier = TieredComponentItem.getTier(stack);
-
-        if (tier.isCreative()) {
+        if (this.tier.isCreative()) {
             return 0L;
         }
 
-        return Math.max(1L, tier.usage() * 4L);
+        return Math.max(1L, this.tier.usage() * 4L);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        JetpackTier tier = TieredComponentItem.getTier(stack);
         int throttle = JetpackNbt.getThrottle(stack);
 
-        addEnergyLine(stack, tooltip, tier);
-        addCompactStatusLine(stack, tooltip, tier);
+        addEnergyLine(stack, tooltip);
+        addCompactStatusLine(stack, tooltip);
         tooltip.add(Text.literal("Throttle: " + throttle + "%").formatted(Formatting.GRAY));
 
         tooltip.add(Text.empty());
@@ -117,23 +115,23 @@ public class JetpackItem extends ArmorItem implements SimpleEnergyItem {
         return text.getString().equals("Hold SHIFT for info");
     }
 
-    private static void addEnergyLine(ItemStack stack, List<Text> tooltip, JetpackTier tier) {
-        if (tier.isCreative()) {
+    private void addEnergyLine(ItemStack stack, List<Text> tooltip) {
+        if (this.tier.isCreative()) {
             tooltip.add(Text.literal("Infinite FE").formatted(Formatting.GRAY));
         } else {
             tooltip.add(
-                    Text.literal("Energy: " + formatEnergy(JetpackNbt.getEnergy(stack)) + " / " + formatEnergy(tier.capacity()) + " FE")
+                    Text.literal("Energy: " + formatEnergy(JetpackNbt.getEnergy(stack)) + " / " + formatEnergy(this.tier.capacity()) + " FE")
                             .formatted(Formatting.AQUA)
             );
         }
     }
 
-    private static void addCompactStatusLine(ItemStack stack, List<Text> tooltip, JetpackTier tier) {
+    private void addCompactStatusLine(ItemStack stack, List<Text> tooltip) {
         boolean engineOn = JetpackNbt.isEngineEnabled(stack);
         boolean hoverOn = JetpackNbt.isHoverEnabled(stack);
 
         MutableText line = Text.literal("TIER: ").formatted(Formatting.GRAY)
-                .append(Text.literal(TieredComponentItem.getTierTooltipValue(tier)).formatted(getTierFormatting(tier)))
+                .append(Text.literal(TieredComponentItem.getTierTooltipValue(this.tier)).formatted(getTierFormatting(this.tier)))
                 .append(Text.literal(" | ").formatted(Formatting.DARK_GRAY))
                 .append(Text.literal("ENGINE").formatted(engineOn ? Formatting.GREEN : Formatting.RED))
                 .append(Text.literal(" | ").formatted(Formatting.DARK_GRAY))

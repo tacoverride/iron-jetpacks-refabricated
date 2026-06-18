@@ -15,6 +15,11 @@ repositories {
 	}
 
 	maven {
+		name = "Ladysnake Mods"
+		url = "https://maven.ladysnake.org/releases"
+	}
+
+	maven {
 		name = "TerraformersMC"
 		url = "https://maven.terraformersmc.com/releases/"
 	}
@@ -50,13 +55,14 @@ dependencies {
 
 	include modApi("teamreborn:energy:${project.energy_api_version}")
 
-	// Optional Mod Menu integration.
 	modCompileOnly "com.terraformersmc:modmenu:7.2.2"
 	modLocalRuntime "com.terraformersmc:modmenu:7.2.2"
 
-	// Config screen library. Included so users do not need to install it separately.
 	modImplementation "me.shedaniel.cloth:cloth-config-fabric:11.1.136"
 	include "me.shedaniel.cloth:cloth-config-fabric:11.1.136"
+
+	modCompileOnly "dev.emi:trinkets:3.7.2"
+	modLocalRuntime "dev.emi:trinkets:3.7.2"
 }
 
 processResources {
@@ -84,7 +90,7 @@ base {
 }
 
 jar {
-	archiveFileName = "iron-jetpacks-refabricated-1.20.1-1.0.0-dev.jar"
+	archiveFileName = "iron-jetpacks-refabricated-1.20.1-dev.jar"
 
 	def projectName = project.name
 	inputs.property "projectName", projectName
@@ -95,7 +101,7 @@ jar {
 }
 
 remapJar {
-	archiveFileName = "iron-jetpacks-refabricated-1.20.1-1.0.0.jar"
+	archiveFileName = "iron-jetpacks-refabricated-1.20.1.jar"
 }
 
 publishing {

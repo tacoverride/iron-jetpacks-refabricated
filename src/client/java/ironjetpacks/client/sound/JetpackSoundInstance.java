@@ -1,5 +1,6 @@
 package ironjetpacks.client.sound;
 
+import ironjetpacks.compat.TrinketsCompat;
 import ironjetpacks.config.ModConfig;
 import ironjetpacks.item.JetpackItem;
 import ironjetpacks.registry.ModSounds;
@@ -7,7 +8,6 @@ import ironjetpacks.util.JetpackNbt;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 
@@ -45,7 +45,7 @@ public class JetpackSoundInstance extends MovingSoundInstance {
             return;
         }
 
-        ItemStack stack = this.client.player.getEquippedStack(EquipmentSlot.CHEST);
+        ItemStack stack = TrinketsCompat.findEquippedJetpack(this.client.player);
 
         if (!(stack.getItem() instanceof JetpackItem)) {
             this.setDone();

@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "gold",
-  "result_type": "capacitor",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:capacitors",
   "pattern": [
     "MLM",
@@ -13,9 +11,10 @@
       "tag": "forge:ingots/gold"
     },
     "L": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "cell",
-      "tier": "gold"
+      "item": "ironjetpacks:gold_cell"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:gold_capacitor"
   }
 }

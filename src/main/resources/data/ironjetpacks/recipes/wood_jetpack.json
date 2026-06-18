@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "wood",
-  "result_type": "jetpack",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:jetpacks",
   "pattern": [
     "MPM",
@@ -13,17 +11,16 @@
       "tag": "minecraft:planks"
     },
     "P": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "capacitor",
-      "tier": "wood"
+      "item": "ironjetpacks:wood_capacitor"
     },
     "S": {
       "item": "ironjetpacks:strap"
     },
     "T": {
-      "type": "ironjetpacks:tiered_item",
-      "item": "thruster",
-      "tier": "wood"
+      "item": "ironjetpacks:wood_thruster"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:wood_jetpack"
   }
 }

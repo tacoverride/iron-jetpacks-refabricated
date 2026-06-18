@@ -1,7 +1,5 @@
 {
-  "type": "ironjetpacks:tiered_shaped",
-  "tier": "wood",
-  "result_type": "cell",
+  "type": "minecraft:crafting_shaped",
   "group": "ironjetpacks:cells",
   "pattern": [
     " R ",
@@ -18,5 +16,8 @@
     "C": {
       "item": "ironjetpacks:basic_coil"
     }
+  },
+  "result": {
+    "item": "ironjetpacks:wood_cell"
   }
 }
